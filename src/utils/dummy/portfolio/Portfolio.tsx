@@ -1,0 +1,61 @@
+export const BTNS = [
+    "DESIGN AND DEVELOPMENT",
+    "MOBILE APP",
+    "PPC",
+    "SALESFORCE",
+    "SEO",
+  ];
+  
+  
+export const portfolio = [
+    [
+      { id: 1, title: "Carrier While", description: "Domain Migration", img: "/design/Carrier-wheels-1.png" },
+      { id: 2, title: "InTow", description: "Custom Web App", img: "/design/Hindustan-1.png" },
+      { id: 3, title: "Hindustan Zinc", description: "Corporate Website", img: "/design/Intwo-2.png" },
+      { id: 4, title: "Hindustan Zinc", description: "Corporate Website", img: "/design/Carrier-wheels-1.png" },
+      { id: 5, title: "Carrier While", description: "Domain Migration", img: "/design/Carrier-wheels-1.png" },
+      { id: 6, title: "InTow", description: "Custom Web App", img: "/design/Hindustan-1.png" },
+      { id: 7, title: "Hindustan Zinc", description: "Corporate Website", img: "/design/Intwo-2.png" },
+      { id: 8, title: "Hindustan Zinc", description: "Corporate Website", img: "/design/Carrier-wheels-1.png" },
+    ],
+    [
+      { id: 1, title: "Food Delivery App", description: "iOS + Android", img: "/mobileApp/bestsecret-1.webp" },
+      { id: 2, title: "Fitness Tracker", description: "Cross-platform app", img: "/mobileApp/freeup-1.webp" },
+      { id: 3, title: "Food Delivery App", description: "Cross-platform app", img: "/mobileApp/Lambus-Travel-Planner-3.webp" },
+      { id: 4, title: "Fitness Tracker", description: "Cross-platform app", img: "/mobileApp/freeup-1.webp" },
+      { id: 5, title: "Food Delivery App", description: "iOS + Android", img: "/mobileApp/bestsecret-1.webp" },
+      { id: 6, title: "Fitness Tracker", description: "Cross-platform app", img: "/mobileApp/freeup-1.webp" },
+      { id: 7, title: "Food Delivery App", description: "Cross-platform app", img: "/mobileApp/Lambus-Travel-Planner-3.webp" },
+      { id: 8, title: "Fitness Tracker", description: "Cross-platform app", img: "/mobileApp/freeup-1.webp" },
+    ],
+    [
+      { id: 1, title: "Google Ads Campaign", description: "Improved CTR by 35%", img: "/ppc/Best-Life-Listing-1.png" },
+      { id: 2, title: "E-commerce PPC", description: "ROI focused ads", img: "/ppc/Muvall-Listing.png" },
+      { id: 3, title: "Google Ads Campaign", description: "Improved CTR by 35%", img: "/ppc/Best-Life-Listing-1.png" },
+      { id: 4, title: "E-commerce PPC", description: "ROI focused ads", img: "/ppc/priseyescare-listing.png" },
+      { id: 5, title: "Google Ads Campaign", description: "Improved CTR by 35%", img: "/ppc/Best-Life-Listing-1.png" },
+      { id: 6, title: "E-commerce PPC", description: "ROI focused ads", img: "/ppc/Muvall-Listing.png" },
+      { id: 7, title: "Google Ads Campaign", description: "Improved CTR by 35%", img: "/ppc/Best-Life-Listing-1.png" },
+      { id: 8, title: "E-commerce PPC", description: "ROI focused ads", img: "/ppc/priseyescare-listing.png" },
+    ],
+    [
+      { id: 1, title: "Salesforce Integration", description: "CRM setup", img: "/saleforce/Boosting-a-Home-Improvement-Company-with-Smart-Salesforce-Solutions-1.webp" },
+      { id: 2, title: "Custom Dashboard", description: "Real-time analytics", img: "/saleforce/How-TIS-Improve-Data-Management-Efficiency-With-Service-Cloud-2.webp" },
+      { id: 3, title: "Salesforce Integration", description: "CRM setup", img: "/saleforce/Boosting-a-Home-Improvement-Company-with-Smart-Salesforce-Solutions-1.webp" },
+      { id: 4, title: "Custom Dashboard", description: "Real-time analytics", img: "/saleforce/Salesforce-Integration-for-Non-Profit-Organization-Website-2.png" },
+      { id: 5, title: "Salesforce Integration", description: "CRM setup", img: "/saleforce/Boosting-a-Home-Improvement-Company-with-Smart-Salesforce-Solutions-1.webp" },
+      { id: 6, title: "Custom Dashboard", description: "Real-time analytics", img: "/saleforce/How-TIS-Improve-Data-Management-Efficiency-With-Service-Cloud-2.webp" },
+      { id: 7, title: "Salesforce Integration", description: "CRM setup", img: "/saleforce/Boosting-a-Home-Improvement-Company-with-Smart-Salesforce-Solutions-1.webp" },
+      { id: 8, title: "Custom Dashboard", description: "Real-time analytics", img: "/saleforce/Salesforce-Integration-for-Non-Profit-Organization-Website-2.png" },
+    ],
+    [
+      { id: 1, title: "SEO for Travel Site", description: "Ranked #1 on Google", img: "/seo/Ambian-Studio-1.png" },
+      { id: 2, title: "E-commerce SEO", description: "Organic growth 300%", img: "/seo/Elixscent-listing.png" },
+      { id: 3, title: "SEO for Travel Site", description: "Organic growth 300%", img: "/seo/My-Parcel-Box-1.png" },
+      { id: 4, title: "E-commerce SEO", description: "Organic growth 300%", img: "/seo/Tonetag-2.png" },
+      { id: 5, title: "SEO for Travel Site", description: "Ranked #1 on Google", img: "/seo/Ambian-Studio-1.png" },
+      { id: 6, title: "E-commerce SEO", description: "Organic growth 300%", img: "/seo/Elixscent-listing.png" },
+      { id: 7, title: "SEO for Travel Site", description: "Organic growth 300%", img: "/seo/My-Parcel-Box-1.png" },
+      { id: 8, title: "E-commerce SEO", description: "Organic growth 300%", img: "/seo/Tonetag-2.png" },
+    ],
+  ];
