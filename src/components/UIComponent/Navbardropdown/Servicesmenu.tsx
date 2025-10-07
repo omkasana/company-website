@@ -1,6 +1,6 @@
 "use client";
 
-import { servicesData } from "@/utils/dummy/navbar/ServiceMenu";
+import { serviceData } from "@/utils/dummy/navbar/ServiceMenu";
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import BottomPartDropdown from "./BottomPartDropdown";
@@ -22,7 +22,7 @@ const ServiceMenu = ({
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const activeCategory = servicesData.find(
+  const activeCategory = serviceData.find(
     (cat) => cat.id === activeMainCategory
   );
 
@@ -128,7 +128,7 @@ const ServiceMenu = ({
         
         {mobileView === "main" && (
           <div className="p-2">
-            {servicesData.map((category) => (
+            {serviceData.map((category) => (
               <div
                 key={category.id}
                 className="flex items-center justify-between p-3 border-b border-gray-100 last:border-b-0"
@@ -208,7 +208,7 @@ const ServiceMenu = ({
               SERVICES
             </div>
             <div className="bg-transparent list-none m-0 p-0">
-              {servicesData.map((category) => (
+              {serviceData.map((category) => (
                 <li
                   key={category.id}
                   className={`flex mb-3.5 rounded-lg cursor-pointer transition-all duration-400 ease-in-out bg-white/50 border border-transparent text-[#667085] text-[15px] font-medium relative py-[16px] pr-[14px] pl-[21px] ${

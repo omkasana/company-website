@@ -10,7 +10,7 @@ import IndustriesMenu from "./Navbardropdown/Industriesmenu";
 import WhoWeAreMenu from "@/components/UIComponent/Navbardropdown/WhoWeAremenu";
 
 // Import the actual data sources
-import { servicesData } from "@/utils/dummy/navbar/ServiceMenu";
+import { serviceData } from "@/utils/dummy/navbar/ServiceMenu";
 import { industriesList } from "@/utils/dummy/navbar/DropdownIndustries";
 import { whoWeAreData as whoWeAreConfig } from "@/utils/dummy/navbar/DropdownWhoWeAre";
 
@@ -257,7 +257,7 @@ const Navbar = () => {
                             {/* Services Special Handling */}
                             {item.label === "Services" ? (
                               <div>
-                                {servicesData.map((category) => (
+                                {serviceData.map((category) => (
                                   <div key={category.id}>
                                     <button
                                       onClick={() => toggleMobileServicesSubCategory(category.name)}

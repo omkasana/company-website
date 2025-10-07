@@ -1,6 +1,6 @@
 import { MainCategory } from "@/types/Category";
 
-export const servicesData: MainCategory[] = [
+export const serviceData: MainCategory[] = [
  {
   "id": "build-secure",
   "name": "Build & Secure",
@@ -17,37 +17,37 @@ export const servicesData: MainCategory[] = [
         {
           "name": "Digital Consulting",
           "description": "Achieve your business goals with expert digital strategies.",
-          "link": "/services/build-secure/digital-transformation/consulting"
+          "link": "/service/build-secure/digital-transformation-consulting"
         },
         {
           "name": "Customer Experience (CX)",
           "description": "Delivering exceptional customer journeys with innovative CX strategies.",
-          "link": "/services/build-secure/digital-transformation/customer-experience"
+          "link": "/service/build-secure/digital-transformation-customer-experience"
         },
         {
           "name": "AI Transformation",
           "description": "Revamp your existing infrastructure with AI-powered solutions.",
-          "link": "/services/build-secure/digital-transformation/ai-transformation"
+          "link": "/service/build-secure/digital-transformation-ai-transformation"
         },
         {
           "name": "Blockchain-led Decentralization",
           "description": "Secure, transparent, and decentralized systems for your enterprise.",
-          "link": "/services/build-secure/digital-transformation/blockchain"
+          "link": "/service/build-secure/digital-transformation-blockchain"
         },
         {
           "name": "AR/VR Integration",
           "description": "Immersive AR/VR solutions for next-level user experiences.",
-          "link": "/services/build-secure/digital-transformation/ar-vr"
+          "link": "/service/build-secure/digital-transformation-ar-vr"
         },
         {
           "name": "Metaverse Development",
           "description": "Build future-ready virtual worlds for endless possibilities.",
-          "link": "/services/build-secure/digital-transformation/metaverse"
+          "link": "/service/build-secure/digital-transformation-metaverse"
         },
         {
-          "name": "AI Integration Services",
+          "name": "AI Integration service",
           "description": "Integrate AI into existing tech infrastructures for business transformation.",
-          "link": "/services/build-secure/digital-transformation/ai-integration"
+          "link": "/service/build-secure/digital-transformation-ai-integration"
         }
       ]
     },
@@ -57,22 +57,22 @@ export const servicesData: MainCategory[] = [
         {
           "name": "MVP Development",
           "description": "Build a Minimum Viable Product to validate your idea quickly.",
-          "link": "/services/build-secure/product-engineering/mvp"
+          "link": "/service/build-secure/product-engineering-mvp"
         },
         {
           "name": "SaaS Development",
           "description": "Build scalable and secure Software-as-a-Service solutions.",
-          "link": "/services/build-secure/product-engineering/saas"
+          "link": "/service/build-secure/product-engineering-saas"
         },
         {
           "name": "Product Strategy",
           "description": "Plan and execute successful product development strategies.",
-          "link": "/services/build-secure/product-engineering/strategy"
+          "link": "/service/build-secure/product-engineering-strategy"
         },
         {
           "name": "UI/UX Design",
           "description": "Create intuitive and engaging user experiences.",
-          "link": "/services/build-secure/product-engineering/ui-ux"
+          "link": "/service/build-secure/product-engineering-ui-ux"
         }
       ]
     },
@@ -82,22 +82,22 @@ export const servicesData: MainCategory[] = [
         {
           "name": "Machine Learning",
           "description": "Build intelligent systems that learn from your data.",
-          "link": "/services/build-secure/data-ai/machine-learning"
+          "link": "/service/build-secure/data-ai-machine-learning"
         },
         {
           "name": "Data Analytics",
           "description": "Turn your data into actionable insights and decisions.",
-          "link": "/services/build-secure/data-ai/analytics"
+          "link": "/service/build-secure/data-ai-analytics"
         },
         {
           "name": "Big Data Solutions",
           "description": "Handle massive datasets with scalable infrastructure.",
-          "link": "/services/build-secure/data-ai/big-data"
+          "link": "/service/build-secure/data-ai-/big-data"
         },
         {
           "name": "Computer Vision",
           "description": "Enable machines to interpret and understand visual data.",
-          "link": "/services/build-secure/data-ai/computer-vision"
+          "link": "/service/build-secure/data-ai-computer-vision"
         }
       ]
     },
@@ -107,22 +107,22 @@ export const servicesData: MainCategory[] = [
         {
           "name": "Cloud Migration",
           "description": "Seamlessly move your infrastructure to the cloud.",
-          "link": "/services/build-secure/cloud-devops/migration"
+          "link": "/service/build-secure/cloud-devops-migration"
         },
         {
           "name": "DevOps Implementation",
           "description": "Automate and streamline your development workflows.",
-          "link": "/services/build-secure/cloud-devops/devops"
+          "link": "/service/build-secure/cloud-devops-devops"
         },
         {
           "name": "Containerization",
           "description": "Package and deploy applications with Docker and Kubernetes.",
-          "link": "/services/build-secure/cloud-devops/containerization"
+          "link": "/service/build-secure/cloud-devops-containerization"
         },
         {
           "name": "Serverless Architecture",
           "description": "Build scalable applications without managing servers.",
-          "link": "/services/build-secure/cloud-devops/serverless"
+          "link": "/service/build-secure/cloud-devops-serverless"
         }
       ]
     },
@@ -132,22 +132,22 @@ export const servicesData: MainCategory[] = [
         {
           "name": "Test Automation",
           "description": "Automate testing processes for faster releases.",
-          "link": "/services/build-secure/quality-engineering/automation"
+          "link": "/service/build-secure/quality-engineering-automation"
         },
         {
           "name": "Performance Testing",
           "description": "Ensure your applications can handle high loads.",
-          "link": "/services/build-secure/quality-engineering/performance"
+          "link": "/service/build-secure/quality-engineering-performance"
         },
         {
           "name": "Security Testing",
           "description": "Identify and fix vulnerabilities before deployment.",
-          "link": "/services/build-secure/quality-engineering/security"
+          "link": "/service/build-secure/quality-engineering-security"
         },
         {
           "name": "QA Process Consulting",
           "description": "Optimize your quality assurance processes.",
-          "link": "/services/build-secure/quality-engineering/consulting"
+          "link": "/service/build-secure/quality-engineering-consulting"
         }
       ]
     },
@@ -157,22 +157,22 @@ export const servicesData: MainCategory[] = [
         {
           "name": "Vulnerability Assessment",
           "description": "Identify security weaknesses in your systems.",
-          "link": "/services/build-secure/cybersecurity/assessment"
+          "link": "/service/build-secure/cybersecurity-assessment"
         },
         {
           "name": "Penetration Testing",
           "description": "Simulate cyber attacks to test your defenses.",
-          "link": "/services/build-secure/cybersecurity/pen-testing"
+          "link": "/service/build-secure/cybersecurity-pen-testing"
         },
         {
           "name": "Security Architecture",
           "description": "Design secure systems from the ground up.",
-          "link": "/services/build-secure/cybersecurity/architecture"
+          "link": "/service/build-secure/cybersecurity-architecture"
         },
         {
           "name": "Incident Response",
           "description": "Prepare for and respond to security breaches.",
-          "link": "/services/build-secure/cybersecurity/incident-response"
+          "link": "/service/build-secure/cybersecurity-incident-response"
         }
       ]
     }
@@ -449,7 +449,7 @@ export const servicesData: MainCategory[] = [
           "link": "/compliance/industry/healthcare"
         },
         {
-          "name": "Financial Services Compliance",
+          "name": "Financial service Compliance",
           "description": "Regulatory compliance for financial institutions.",
           "link": "/compliance/industry/financial"
         },

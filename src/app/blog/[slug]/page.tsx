@@ -1,228 +1,247 @@
+// src/app/blog/[slug]/page.tsx
 "use client";
 
 import { useParams } from "next/navigation";
 import React from "react";
 import Image from "next/image";
+import { blogDetailData } from "@/utils/dummy/blog/blogDetailData";
 
 const BlogDetail = () => {
-    const { slug } = useParams();
+    useParams();
+
+    // Smooth scroll function
+    const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+        e.preventDefault();
+        const element = document.getElementById(id);
+        if (element) {
+            const offset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth"
+            });
+        }
+    };
 
     return (
         <>
-            <div className="mt-20  h-[300px] w-full" style={{
-                background: "linear-gradient(to right, rgb(201, 96, 66), rgb(206, 106, 156), rgb(85, 128, 206))",
-            }}>
-                <div className=" container text-start pt-2 items-center text-white w-[800px] ">
-                    <h1 className="sm:text-2xl md:text-3xl lg:text-4xl mt-[40px]" >
-                        What is the Difference Between Headless and Composable Commerce?
+            {/* Banner - Fully Responsive */}
+            <div 
+                className="pt-16 sm:pt-20 min-h-[120px] sm:min-h-[160px] md:min-h-[200px] w-full flex items-center" 
+                style={{
+                    background: "linear-gradient(to right, rgb(201, 96, 66), rgb(206, 106, 156), rgb(85, 128, 206))",
+                }}
+            >
+                <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl text-white py-3 sm:py-5 md:py-7">
+                    <h1 className="text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-2 sm:mb-3 leading-tight">
+                        {blogDetailData.title}
                     </h1>
-                    <div className="flex gap-4 mt-4">
-                        <p className="border-1 px-2 py-1 rounded-md text-center">
-                            Aug 29th, 2025
-                        </p>
-                        <p className="border-1 px-2 py-1 rounded-md text-center">
-                            eCommerce
-                        </p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                        <span className="border border-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[9px] sm:text-xs">
+                            {blogDetailData.date}
+                        </span>
+                        <span className="border border-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-[9px] sm:text-xs">
+                            {blogDetailData.category}
+                        </span>
                     </div>
-
                 </div>
-            </div >
+            </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 p-4">
-                {/* LEFT: Written by / TOC */}
-                <aside className={"lg:col-span-1 p-2"}>
-                    <div>
-                        <h6 className="text-sm lg:text-base">Written by</h6>
+            {/* Main Content - Better Sidebar Width */}
+            <div className="container mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 md:py-8 max-w-[1400px]">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+                    
+                    {/* LEFT SIDEBAR - Better Width & Readable Font */}
+                    <aside className="hidden lg:block lg:col-span-3">
+                        <div className="lg:sticky lg:top-24">
+                            {/* Author Section */}
+                            <div className="mb-6 pb-5 border-b border-gray-200">
+                                <h6 className="text-xs font-semibold mb-3 text-gray-500 uppercase tracking-wide">Written by</h6>
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gray-200">
+                                        <Image
+                                            src={blogDetailData.author.image}
+                                            alt={blogDetailData.author.name}
+                                            width={48}
+                                            height={48}
+                                            className="object-cover w-full h-full"
+                                        />
+                                    </div>
+                                    <h6 className="text-sm font-medium text-gray-800 leading-tight">{blogDetailData.author.name}</h6>
+                                </div>
+                            </div>
 
-                        <div className="flex items-center gap-3 mt-2">
-                            <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+                            {/* Table of Contents */}
+                            <div>
+                                <h6 className="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-wide">
+                                    Table of Contents
+                                </h6>
+                                <nav className="text-sm">
+                                    <ul className="space-y-3">
+                                        {blogDetailData.tableOfContents.map((item) => (
+                                            <li key={item.id}>
+                                                <a 
+                                                    className="text-gray-600 hover:text-red-500 transition-colors block leading-snug"
+                                                    href={`#${item.id}`}
+                                                    onClick={(e) => scrollToSection(e, item.id)}
+                                                >
+                                                    {item.label}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </aside>
+
+                    {/* MIDDLE - Blog Content */}
+                    <main className="lg:col-span-6">
+                        <article className="prose prose-gray max-w-none">
+                            {/* Introduction */}
+                            {blogDetailData.sections[0].content.map((paragraph, idx) => (
+                                <p key={idx} className="text-gray-700 text-xs sm:text-sm md:text-base lg:text-base leading-relaxed mb-3 sm:mb-4 md:mb-5">
+                                    {paragraph}
+                                </p>
+                            ))}
+
+                            {/* Featured Image */}
+                            <div className="my-4 sm:my-6 md:my-8">
                                 <Image
-                                    src="/images/blog/sunil-1img.jpg"
-                                    alt="Sunil Kumar"
-                                    width={50}
-                                    height={50}
-                                    className="object-cover"
+                                    src={blogDetailData.featuredImage}
+                                    alt="Blog Featured Image"
+                                    width={1200}
+                                    height={600}
+                                    className="rounded-lg w-full h-auto object-cover shadow-sm"
                                 />
                             </div>
-                            <h6 className="text-sm lg:text-base">Sunil Kumar</h6>
+
+                            {/* Dynamic Sections */}
+                            {blogDetailData.sections.slice(1).map((section) => (
+                                <div key={section.id}>
+                                    <h2 
+                                        id={section.id} 
+                                        className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-900 mt-5 sm:mt-7 md:mt-9 mb-2 sm:mb-3 md:mb-4 scroll-mt-24"
+                                    >
+                                        {section.title}
+                                    </h2>
+                                    {section.content.map((paragraph, idx) => (
+                                        <p key={idx} className="text-gray-700 text-xs sm:text-sm md:text-base lg:text-base leading-relaxed mb-3 sm:mb-4 md:mb-5">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                                </div>
+                            ))}
+                        </article>
+
+                        {/* Mobile Author Section - At Bottom */}
+                        <div className="lg:hidden mt-8 mb-6 pt-6 border-t-2 border-gray-200">
+                            <div className="flex items-center gap-3 bg-gray-50 p-3 rounded-lg">
+                                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-gray-300">
+                                    <Image
+                                        src={blogDetailData.author.image}
+                                        alt={blogDetailData.author.name}
+                                        width={48}
+                                        height={48}
+                                        className="object-cover w-full h-full"
+                                    />
+                                </div>
+                                <div>
+                                    <p className="text-[10px] text-gray-500 uppercase tracking-wide mb-0.5">Written by</p>
+                                    <h6 className="text-sm font-semibold text-gray-800">{blogDetailData.author.name}</h6>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <h6 className="mt-6 mb-2 font-bold text-[#9CA3AF] text-xs lg:text-sm">
-                        TABLE OF CONTENTS
-                    </h6>
-
-                    {/* NOTE: only allow internal scrolling on lg (desktop). On md/sm it's full height auto so no scrollbar */}
-                    <nav className="text-sm lg:text-sm  overflow-visible lg:overflow-auto lg:max-h-[50vh]">
-                        <ul className="list-disc pl-5 space-y-1 lg:space-y-2 lg:leading-6">
-                            <li>
-                                <a className="hover:text-red-500" href="#What_is_Headless_Commerce">
-                                    What is Headless Commerce?
-                                </a>
-                            </li>
-                            <li>
-                                <a className="hover:text-red-500" href="#What_is_Composable_Commerce">
-                                    What is Composable Commerce?
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="hover:text-red-500"
-                                    href="#Headless_vs_Composable_Commerce_The_Core_Differences"
-                                >
-                                    Headless vs Composable Commerce: The Core Differences
-                                </a>
-                            </li>
-                            <li>
-                                <a className="hover:text-red-500" href="#Why_Composable_Commerce_is_Gaining_Momentum">
-                                    Why Composable Commerce is Gaining Momentum
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="hover:text-red-500"
-                                    href="#Practical_Considerations_for_Choosing_the_Right_eCommerce_Architecture"
-                                >
-                                    Practical Considerations for Choosing the Right eCommerce Architecture
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="hover:text-red-500"
-                                    href="#Case_Examples_Composable_Commerce_for_B2C_and_Headless_Implementations"
-                                >
-                                    Case Examples
-                                </a>
-                            </li>
-                            <li>
-                                <a className="hover:text-red-500" href="#Choosing_the_Right_eCommerce_Tech_Stack">
-                                    Choosing the Right eCommerce Tech Stack
-                                </a>
-                            </li>
-                            <li>
-                                <a className="hover:text-red-500" href="#Key_Trends_Shaping_the_Future_of_Commerce_Architectures">
-                                    Key Trends
-                                </a>
-                            </li>
-                            <li>
-                                <a className="hover:text-red-500" href="#SparxITs_Take">
-                                    SparxIT’s Take
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </aside>
-
-                {/* MIDDLE: Content */}
-                <main className="lg:col-span-3 overflow-visible lg:overflow-auto lg:max-h-[80vh] lg:hide-scrollbar">
-                    <article className="prose prose-invert max-w-none lg:prose-lg">
-                        <p>
-                            Have you noticed how quickly digital commerce is evolving, and how businesses are redefining customer experiences? Companies that once depended on rigid platforms are now exploring models such as headless commerce and composable commerce to build flexible and scalable online ecosystems. This shift is not simply a technology upgrade, it is a response to the rising expectations of today’s digital-first customers. <br /><br />
-
-                            In the early years of eCommerce, platforms were developed as single, all-in-one solutions. While these systems served their purpose, they lacked the agility to support new business models or deliver seamless omnichannel experiences. As consumer behavior became more complex, businesses required an approach that could adapt quickly to changing market demands.<br /><br />
-
-                            This transformation introduced the concept of decoupled commerce architecture, where the front-end presentation layer is separated from the back-end commerce engine. By moving away from tightly coupled monolithic architecture, organizations gained the ability to innovate on customer-facing experiences while keeping the core operations stable.<br /><br />
-
-
-                        </p>
-
-                        <Image
-                            src="/images/blog/blog-content-img.webp"
-                            alt="Blog Detail Image"
-                            width={1200}
-                            height={600}
-                            className="my-4 rounded-lg w-full h-auto object-cover"
-                        />
-
-                        <p>
-                            Gartner predicts that by 2023 organizations that adopt a composable commerce approach will outpace competition by 80 percent in the speed of new feature implementation. This insight highlights how modular commerce strategies are becoming essential for companies seeking agility and innovation.<br /><br />
-
-                            The adoption of decoupled systems created the foundation for two influential models: headless commerce and composable commerce. Both extend the benefits of separation, but they differ in scope, scalability, and flexibility. As a result, companies today can choose between these architectures based on their long-term vision, innovation goals, and growth strategy.<br /><br />
-                        </p>
-
-                        <h4 className="mt-4 lg:mt-6">What is Headless Commerce?</h4>
-                        <p>
-                            The fundamental concept of headless commerce involves the separation
-                            of the frontend from the backend, allowing them to operate
-                            independently.
-                        </p>
-
-                        {/* rest of content... */}
-                    </article>
-                </main>
-
-                {/* RIGHT: Card / Form */}
-                <aside className="lg:col-span-1 p-2 text-white">
-                    <div>
-                        <Image
-                            src="/images/blog/product-design.webp"
-                            alt="Product Design"
-                            width={200}
-                            height={200}
-                            className="w-full h-[200px] lg:h-[200px] rounded-tl-2xl rounded-tr-2xl"
-                        />
-
-                        <div className="bg-[#000] text-white p-4 lg:p-6 rounded-bl-2xl rounded-br-2xl mt-0">
-                            <form method="post" className="">
-                                <input type="hidden" name="action" value="my_form_submission" />
-
-                                <div>
-                                    <input
-                                        type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Name"
-                                        required
-                                        autoComplete="off"
-                                        className="w-full border-b border-gray-400 bg-transparent text-white focus:outline-none mt-2 text-sm lg:text-base"
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        id="email"
-                                        placeholder="Email"
-                                        required
-                                        autoComplete="off"
-                                        className="w-full border-b border-gray-400 bg-transparent text-white focus:outline-none mt-2 text-sm lg:text-base"
-                                    />
-                                </div>
-
-                                <div>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        id="phoneNumber"
-                                        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-                                            const key = (e as any).key;
-                                            if (!/^[0-9]$/.test(key) && key !== "Backspace" && key !== "Delete" && key !== "ArrowLeft" && key !== "ArrowRight") {
-                                                e.preventDefault();
-                                            }
-                                        }}
-                                        maxLength={11}
-                                        placeholder="Phone"
-                                        required
-                                        autoComplete="off"
-                                        className="w-full border-b border-gray-400 bg-transparent text-white focus:outline-none mt-2 text-sm lg:text-base"
-                                    />
-                                </div>
-
-                                <input type="hidden" name="g-recaptcha-response" value="hidden-value" />
-
-                                <div>
-                                    <input
-                                        type="submit"
-                                        id="contactSubmitBtn"
-                                        value="Submit"
-                                        className="bg-red-500 text-white px-6 py-2 mt-2 lg:px-8 lg:py-3 rounded cursor-pointer hover:bg-red-600 transition w-full"
-                                    />
-                                </div>
-                            </form>
+                        {/* Mobile Contact CTA */}
+                        <div className="lg:hidden mt-6 p-4 bg-gradient-to-br from-blue-50 to-gray-50 rounded-xl border border-gray-200">
+                            <h3 className="text-sm font-bold text-gray-900 mb-1.5">Have a Project in Mind?</h3>
+                            <p className="text-xs text-gray-600 mb-3 leading-relaxed">Let's discuss how we can help you succeed.</p>
+                            <a 
+                                href="/contact" 
+                                className="inline-block bg-red-500 text-white px-5 py-2.5 rounded-lg font-medium text-xs hover:bg-red-600 transition shadow-sm"
+                            >
+                                Get in Touch
+                            </a>
                         </div>
-                    </div>
-                </aside>
+                    </main>
+
+                    {/* RIGHT SIDEBAR - Better Width & Readable Font */}
+                    <aside className="hidden lg:block lg:col-span-3">
+                        <div className="lg:sticky lg:top-24">
+                            <div className="bg-gradient-to-br from-gray-50 to-white rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+                                <div className="relative h-32 overflow-hidden">
+                                    <Image
+                                        src="/images/blog/product-design.webp"
+                                        alt="Get in Touch"
+                                        width={400}
+                                        height={128}
+                                        className="w-full h-full object-cover opacity-90"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+                                    <h3 className="absolute bottom-3 left-4 text-white font-bold text-sm">Get in Touch</h3>
+                                </div>
+
+                                <div className="p-4">
+                                    <p className="text-xs text-gray-600 mb-4 leading-relaxed">Have a project in mind? Let's discuss how we can help.</p>
+                                    
+                                    <form method="post" className="space-y-3">
+                                        <input type="hidden" name="action" value="my_form_submission" />
+
+                                        <div>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                placeholder="Your Name"
+                                                required
+                                                autoComplete="off"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                placeholder="Your Email"
+                                                required
+                                                autoComplete="off"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
+                                            />
+                                        </div>
+
+                                        <div>
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                                                    const key = e.key;
+                                                    if (!/^[0-9]$/.test(key) && key !== "Backspace" && key !== "Delete" && key !== "ArrowLeft" && key !== "ArrowRight") {
+                                                        e.preventDefault();
+                                                    }
+                                                }}
+                                                maxLength={11}
+                                                placeholder="Phone Number"
+                                                required
+                                                autoComplete="off"
+                                                className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm"
+                                            />
+                                        </div>
+
+                                        <button
+                                            type="submit"
+                                            className="w-full bg-red-500 text-white px-4 py-2.5 rounded-lg font-medium text-sm hover:bg-red-600 transition shadow-sm"
+                                        >
+                                            Send Message
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </>
     );

@@ -6,7 +6,7 @@ export const careerPageVideoData: CareerPageVideoData = {
   buttons: {
     primary: {
       text: "Apply Now",
-      href: "/apply"
+      href: "/jobs"
     },
     secondary: {
       text: "Our Vow",
